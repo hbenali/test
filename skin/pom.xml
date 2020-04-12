@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>customer-space-parent</artifactId>
+    <groupId>org.exoplatform.addons.customer-space</groupId>
+    <version>1.2.x-SNAPSHOT</version>
+  </parent>
+  <artifactId>customer-space-skin</artifactId>
+  <packaging>war</packaging>
+  <name>Customer Space - Skin</name>
+  <build>
+    <finalName>customer-space-skin</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.lesscss</groupId>
+        <artifactId>lesscss-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>core</id>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+            <configuration>
+              <!-- SourceDirectory shouldn't exist and we should have as default the lesss folder in /src/main/less     -->
+              <sourceDirectory>${project.basedir}/src/main/webapp/skin/less</sourceDirectory>
+              <outputDirectory>${project.build.directory}/${project.build.finalName}/skin/css</outputDirectory>
+              <compress>false</compress>
+              <includes>
+                <include>Style.less</include>
+                <include>EmptyStyle.less</include>
+              </includes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
